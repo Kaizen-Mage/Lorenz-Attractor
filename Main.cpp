@@ -11,6 +11,7 @@ int main(void)
     const int screenWidth = 1920;
     const int screenHeight = 1080;
     // Lorenz Attractor variables
+    //x,y,z basically determine the starting point
     float x = 1.0f, y = 1.0f, z = 1.0f;
     const double alpha = 10.0;    // Sigma 10
     const double beta = 8.0/3.0; // Beta 8/3
@@ -64,7 +65,7 @@ int main(void)
 
         BeginMode3D(camera);
 
-        rlPushMatrix();            // Save the current matrix
+        rlPushMatrix();
         rlSetLineWidth(3.0f);      // Set line thickness
 
         if (points.size() > 1)
@@ -78,8 +79,7 @@ int main(void)
         }
 
         rlSetLineWidth(1.0f);      // Reset to default thickness
-        rlPopMatrix();             // Restore matrix
-
+        rlPopMatrix();            
         EndMode3D();
 
         DrawText("3D Lorenz Attractor - Rotating Camera", 10, 20, 20, RAYWHITE);
